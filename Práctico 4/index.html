@@ -14,9 +14,11 @@
 
     <h3>Ingresar articulo</h3>
     <form action="" class="form">
-        <input type="text" name="name" id="name" placeholder="Nombre...">
+        <input type="text" name="name" id="name" placeholder="Nombre..." required>
         <br>
-        <input type="number" name="price" id="price" placeholder="Precio...">
+        <input type="number" name="price" id="price" min="1" placeholder="Precio..." required>
+        <br>
+        <input type="number" name="quantity" id="quantity" min="1" placeholder="Cantidad..." required>
         <br>
         Imagen (opcional):<input type="file" name="imagen" id="imagen" accept="image/x-png,image/gif,image/jpeg" >
         <br>
@@ -33,6 +35,7 @@
         <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
             <th scope="col">Imagen</th>
         </tr>
         </thead>

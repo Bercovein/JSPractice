@@ -1,26 +1,33 @@
 class Item{
-    constructor(name,price,image){
+    constructor(name,price,quantity,image){
         
     this.name = name;
     this.price = price;
+    this.quantity = quantity;
     this.image = image;
     }
-
 }
 
 var list = new Array();
 
 function insertItem(){
     
-    var name = document.getElementById("name");
-    var price = document.getElementById("price");
+    var name = document.getElementById("name").value;
+    var price = document.getElementById("price").value;
+    var quantity = document.getElementById("quantity").value;
     var image = document.getElementById("image");
 
-    var item = new Item(name.value, price.value, image);
+    console.log(image);
 
-    list.push(item);
+    if(price == "" || quantity == ""){
+        alert("Los campos precio y cantidad deben ser numericos o no estar vacios");
+    }else{
+        var item = new Item(name, price, quantity, image);
     
-    createList();
+        list.push(item);
+        
+        createList();
+    }
 }
 
 function createList(){
@@ -37,16 +44,19 @@ function createList(){
         tr.id = string;
         let tdName = document.createElement("td");
         let tdPrice = document.createElement("td");
+        let tdQuantity = document.createElement("td");
         let tdImage = document.createElement("td");
         let tdImg = document.createElement("IMG");
 
         tdName.innerHTML =  list[lenght].name;
         tdPrice.innerHTML =  list[lenght].price;
+        tdQuantity.innerHTML = list[lenght].quantity;
         tdImg.innerHTML = list[lenght].image;
         tdImage.appendChild(tdImg);
 
         tr.appendChild(tdName);
         tr.appendChild(tdPrice);
+        tr.appendChild(tdQuantity);
         tr.appendChild(tdImage);
 
         tableTr.appendChild(tr);
