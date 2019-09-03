@@ -8,7 +8,7 @@ class Item{
     }
 }
 
-var list = new Array();
+let list = new Array();
 
 function insertItem(){
     
@@ -17,7 +17,6 @@ function insertItem(){
     var quantity = document.getElementById("quantity").value;
     var image = document.getElementById("image");
 
-    console.log(image);
 
     if(price == "" || quantity == ""){
         alert("Los campos precio y cantidad deben ser numericos o no estar vacios");
@@ -34,10 +33,9 @@ function createList(){
 
     var lenght = list.length-1;
     var string = "tr" + lenght;
-    let trSearch = document.getElementById(string);
-
-    while(trSearch == null){
-
+    var trSearch = document.getElementById(string);
+    
+    while(trSearch === null){
         let tableTr = document.querySelector(".table>tBody");
 
         let tr = document.createElement("tr");
@@ -48,6 +46,8 @@ function createList(){
         let tdImage = document.createElement("td");
         let tdImg = document.createElement("IMG");
 
+        
+        
         tdName.innerHTML =  list[lenght].name;
         tdPrice.innerHTML =  list[lenght].price;
         tdQuantity.innerHTML = list[lenght].quantity;
@@ -62,10 +62,11 @@ function createList(){
         tableTr.appendChild(tr);
 
         lenght -=1;
-        if(lenght==0)
+        if(lenght<=0)
             break;
 
         string = "tr" + lenght;
         trSearch = document.getElementById(string);
+        
     }
 }
